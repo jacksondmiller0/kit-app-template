@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (1.8471609217976084, 1.31057262967652, 0.7937382485317588)
-                double3 target = (1.306556463594995, 0.6728728423326812, 0.5525416477031165)
+                double3 position = (2.0781099681451485, 1.5830013074435298, 0.8967786953842445)
+                double3 target = (1.3065564635949953, 0.6728728423326812, 0.5525416477031166)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -21,6 +21,7 @@
             string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary omni_layer = {
+            string authoring_layer = "./ur10e_joint_test.usda"
             dictionary locked = {
             }
             dictionary muteness = {
@@ -39,112 +40,6 @@
 
 def Xform "World"
 {
-    def "ur10e" (
-        prepend payload = @https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.2/Isaac/Robots/UniversalRobots/ur10e/ur10e.usd@
-    )
-    {
-        quatd xformOp:orient = (1, 0, 0, 0)
-        double3 xformOp:scale = (1, 1, 1)
-        double3 xformOp:translate = (0.06462116080899838, -0.04261462582934428, 0)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        over "joints"
-        {
-            over "wrist_1_joint"
-            {
-                float drive:angular:physics:targetPosition = 0
-                bool[] isaac:actuator (
-                    displayName = "Actuator"
-                )
-                string isaac:NameOverride (
-                    displayName = "Joint Name Override"
-                )
-                token[] isaac:physics:DofOffsetOpOrder (
-                    displayName = "Dof Offset Op Order"
-                )
-                float state:angular:physics:position = 0
-                float state:angular:physics:velocity = 0
-            }
-
-            over "elbow_joint"
-            {
-                float drive:angular:physics:targetPosition = 45
-                bool[] isaac:actuator (
-                    displayName = "Actuator"
-                )
-                string isaac:NameOverride (
-                    displayName = "Joint Name Override"
-                )
-                token[] isaac:physics:DofOffsetOpOrder (
-                    displayName = "Dof Offset Op Order"
-                )
-                float state:angular:physics:position = 0
-                float state:angular:physics:velocity = 0
-            }
-
-            over "shoulder_pan_joint"
-            {
-                float state:angular:physics:position = 0
-                float state:angular:physics:velocity = 0
-            }
-
-            over "shoulder_lift_joint"
-            {
-                float drive:angular:physics:targetPosition = -45
-                bool[] isaac:actuator (
-                    displayName = "Actuator"
-                )
-                string isaac:NameOverride (
-                    displayName = "Joint Name Override"
-                )
-                token[] isaac:physics:DofOffsetOpOrder (
-                    displayName = "Dof Offset Op Order"
-                )
-                float state:angular:physics:position = 0
-                float state:angular:physics:velocity = 0
-            }
-
-            over "wrist_2_joint"
-            {
-                float state:angular:physics:position = 0
-                float state:angular:physics:velocity = 0
-            }
-
-            over "wrist_3_joint"
-            {
-                float state:angular:physics:position = 0
-                float state:angular:physics:velocity = 0
-            }
-        }
-
-        over "base_link"
-        {
-        }
-
-        over "shoulder_link"
-        {
-        }
-
-        over "upper_arm_link"
-        {
-        }
-
-        over "forearm_link"
-        {
-        }
-
-        over "wrist_1_link"
-        {
-        }
-
-        over "wrist_2_link"
-        {
-        }
-
-        over "wrist_3_link"
-        {
-        }
-    }
 }
 
 def Xform "Environment"
@@ -272,10 +167,10 @@ over "OmniverseKit_Persp" (
     float exposure:time = 0.02
     float focalLength = 18.147562
     float focusDistance = 400
-    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -0.8701091881242319)
-    float3 xformOp:rotateXYZ = (73.90668, -1.9083329e-14, 139.71068)
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -1.2418243750163998)
+    float3 xformOp:rotateXYZ = (73.90668, -2.862499e-14, 139.71068)
     float3 xformOp:scale = (1, 1, 1)
-    double3 xformOp:translate = (1.8471609217976084, 1.31057262967652, 0.7937382485317588)
+    double3 xformOp:translate = (2.0781099681451485, 1.5830013074435298, 0.8967786953842445)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
 }
 
@@ -358,5 +253,222 @@ over "OmniverseKit_Top" (
     float3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (0, 0, 5)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+def "ur10e" (
+    prepend payload = @https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.2/Isaac/Robots/UniversalRobots/ur10e/ur10e.usd@
+)
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0.06462116080899838, -0.04261462582934428, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    over "joints"
+    {
+        over "wrist_1_joint"
+        {
+            float drive:angular:physics:targetPosition = -90
+            bool[] isaac:actuator (
+                displayName = "Actuator"
+            )
+            string isaac:NameOverride (
+                displayName = "Joint Name Override"
+            )
+            token[] isaac:physics:DofOffsetOpOrder (
+                displayName = "Dof Offset Op Order"
+            )
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+
+        over "elbow_joint"
+        {
+            float drive:angular:physics:targetPosition = 90
+            bool[] isaac:actuator (
+                displayName = "Actuator"
+            )
+            string isaac:NameOverride (
+                displayName = "Joint Name Override"
+            )
+            token[] isaac:physics:DofOffsetOpOrder (
+                displayName = "Dof Offset Op Order"
+            )
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+
+        over "shoulder_pan_joint"
+        {
+            float drive:angular:physics:targetPosition = 0
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+
+        over "shoulder_lift_joint"
+        {
+            float drive:angular:physics:targetPosition = -90
+            bool[] isaac:actuator (
+                displayName = "Actuator"
+            )
+            string isaac:NameOverride (
+                displayName = "Joint Name Override"
+            )
+            token[] isaac:physics:DofOffsetOpOrder (
+                displayName = "Dof Offset Op Order"
+            )
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+
+        over "wrist_2_joint"
+        {
+            float drive:angular:physics:targetPosition = -90
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+
+        over "wrist_3_joint"
+        {
+            float drive:angular:physics:targetPosition = 0
+            float state:angular:physics:position = 0
+            float state:angular:physics:velocity = 0
+        }
+    }
+
+    over "base_link"
+    {
+    }
+
+    over "shoulder_link"
+    {
+    }
+
+    over "upper_arm_link"
+    {
+    }
+
+    over "forearm_link"
+    {
+    }
+
+    over "wrist_1_link"
+    {
+    }
+
+    over "wrist_2_link"
+    {
+    }
+
+    over "wrist_3_link"
+    {
+    }
+}
+
+def "Graphs"
+{
+    def OmniGraph "Position_Controller"
+    {
+        token evaluationMode = "Automatic"
+        token evaluator:type = "execution"
+        token fabricCacheBacking = "StageWithoutHistory"
+        int2 fileFormatVersion = (1, 9)
+        token pipelineStage = "pipelineStageSimulation"
+
+        def OmniGraphNode "OnPlaybackTick"
+        {
+            token node:type = "omni.graph.action.OnPlaybackTick"
+            int node:typeVersion = 2
+            custom double outputs:deltaSeconds
+            custom double outputs:frame
+            custom uint outputs:tick (
+                customData = {
+                    bool isExecution = 1
+                }
+            )
+            custom double outputs:time
+        }
+
+        def OmniGraphNode "JointCommandArray"
+        {
+            custom int inputs:arraySize = 6
+            custom token inputs:arrayType = "double[]" (
+                allowedTokens = ["auto", "bool[]", "double[]", "float[]", "half[]", "int[]", "int64[]", "token[]", "uchar[]", "uint[]", "uint64[]", "double[2][]", "double[3][]", "double[4][]", "matrixd[2][]", "matrixd[3][]", "matrixd[4][]", "float[2][]", "float[3][]", "float[4][]", "half[2][]", "half[3][]", "half[4][]", "int[2][]", "int[3][]", "int[4][]", "timecode[]", "frame[4][]", "colord[3][]", "colorf[3][]", "colorh[3][]", "colord[4][]", "colorf[4][]", "colorh[4][]", "normald[3][]", "normalf[3][]", "normalh[3][]", "pointd[3][]", "pointf[3][]", "pointh[3][]", "quatd[4][]", "quatf[4][]", "quath[4][]", "texcoordd[2][]", "texcoordf[2][]", "texcoordh[2][]", "texcoordd[3][]", "texcoordf[3][]", "texcoordh[3][]", "vectord[3][]", "vectorf[3][]", "vectorh[3][]"]
+            )
+            custom token inputs:input0 (
+                customData = {
+                    dictionary omni = {
+                        dictionary graph = {
+                            double attrValue = 0
+                            string resolvedType = "double"
+                        }
+                    }
+                }
+            )
+            custom double inputs:input1 = -1.8000000268220901
+            custom double inputs:input2 = 1.8000000268220901
+            custom double inputs:input3 = -2.0000000298023224
+            custom double inputs:input4 = -2.2000000327825546
+            custom double inputs:input5 = -1.1000000163912773
+            token node:type = "omni.graph.nodes.ConstructArray"
+            int node:typeVersion = 1
+            custom token outputs:array
+        }
+
+        def OmniGraphNode "ArticulationController"
+        {
+            custom double[] inputs:effortCommand
+            custom uint inputs:execIn (
+                customData = {
+                    bool isExecution = 1
+                }
+            )
+            prepend uint inputs:execIn.connect = </Graphs/Position_Controller/OnPlaybackTick.outputs:tick>
+            custom int[] inputs:jointIndices
+            custom token[] inputs:jointNames
+            prepend token[] inputs:jointNames.connect = </Graphs/Position_Controller/JointNameArray.outputs:array>
+            custom double[] inputs:positionCommand
+            prepend double[] inputs:positionCommand.connect = </Graphs/Position_Controller/JointCommandArray.outputs:array>
+            custom string inputs:robotPath = "/ur10e/root_joint"
+            custom rel inputs:targetPrim (
+                customData = {
+                    dictionary omni = {
+                        dictionary graph = {
+                            string relType = "target"
+                        }
+                    }
+                }
+            )
+            custom double[] inputs:velocityCommand
+            token node:type = "isaacsim.core.nodes.IsaacArticulationController"
+            int node:typeVersion = 1
+        }
+
+        def OmniGraphNode "JointNameArray"
+        {
+            custom int inputs:arraySize = 6
+            custom token inputs:arrayType = "token[]" (
+                allowedTokens = ["auto", "bool[]", "double[]", "float[]", "half[]", "int[]", "int64[]", "token[]", "uchar[]", "uint[]", "uint64[]", "double[2][]", "double[3][]", "double[4][]", "matrixd[2][]", "matrixd[3][]", "matrixd[4][]", "float[2][]", "float[3][]", "float[4][]", "half[2][]", "half[3][]", "half[4][]", "int[2][]", "int[3][]", "int[4][]", "timecode[]", "frame[4][]", "colord[3][]", "colorf[3][]", "colorh[3][]", "colord[4][]", "colorf[4][]", "colorh[4][]", "normald[3][]", "normalf[3][]", "normalh[3][]", "pointd[3][]", "pointf[3][]", "pointh[3][]", "quatd[4][]", "quatf[4][]", "quath[4][]", "texcoordd[2][]", "texcoordf[2][]", "texcoordh[2][]", "texcoordd[3][]", "texcoordf[3][]", "texcoordh[3][]", "vectord[3][]", "vectorf[3][]", "vectorh[3][]"]
+            )
+            custom token inputs:input0 (
+                customData = {
+                    dictionary omni = {
+                        dictionary graph = {
+                            token attrValue = "shoulder_pan_joint"
+                            string resolvedType = "token"
+                        }
+                    }
+                }
+            )
+            custom token inputs:input1 = "shoulder_lift_joint"
+            custom token inputs:input2 = "elbow_joint"
+            custom token inputs:input3 = "wrist_1_joint"
+            custom token inputs:input4 = "wrist_2_joint"
+            custom token inputs:input5 = "wrist_3_joint"
+            token node:type = "omni.graph.nodes.ConstructArray"
+            int node:typeVersion = 1
+            custom token outputs:array
+        }
+    }
 }
 
