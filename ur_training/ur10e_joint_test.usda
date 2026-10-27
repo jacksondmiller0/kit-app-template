@@ -7,8 +7,8 @@
                 double radius = 5
             }
             dictionary Perspective = {
-                double3 position = (2.0781099681451485, 1.5830013074435298, 0.8967786953842445)
-                double3 target = (1.3065564635949953, 0.6728728423326812, 0.5525416477031166)
+                double3 position = (1.9264267698948, 1.84280454862939, 1.113820698533528)
+                double3 target = (1.0577433681216157, 0.8181011593497853, 0.7262480832418012)
             }
             dictionary Right = {
                 double3 position = (0, -5, 0)
@@ -53,7 +53,7 @@ def Xform "World"
         {
             over "wrist_1_joint"
             {
-                float drive:angular:physics:targetPosition = -90
+                float drive:angular:physics:targetPosition = -64.873
                 bool[] isaac:actuator (
                     displayName = "Actuator"
                 )
@@ -69,7 +69,7 @@ def Xform "World"
 
             over "elbow_joint"
             {
-                float drive:angular:physics:targetPosition = 90
+                float drive:angular:physics:targetPosition = -122.00699
                 bool[] isaac:actuator (
                     displayName = "Actuator"
                 )
@@ -85,14 +85,14 @@ def Xform "World"
 
             over "shoulder_pan_joint"
             {
-                float drive:angular:physics:targetPosition = 0
+                float drive:angular:physics:targetPosition = -72.65795
                 float state:angular:physics:position = -0.0023889018
                 float state:angular:physics:velocity = 0
             }
 
             over "shoulder_lift_joint"
             {
-                float drive:angular:physics:targetPosition = -90
+                float drive:angular:physics:targetPosition = -83.93111
                 bool[] isaac:actuator (
                     displayName = "Actuator"
                 )
@@ -108,14 +108,14 @@ def Xform "World"
 
             over "wrist_2_joint"
             {
-                float drive:angular:physics:targetPosition = -90
+                float drive:angular:physics:targetPosition = 110.25668
                 float state:angular:physics:position = -90.00002
                 float state:angular:physics:velocity = 0
             }
 
             over "wrist_3_joint"
             {
-                float drive:angular:physics:targetPosition = 0
+                float drive:angular:physics:targetPosition = 14.902939
                 float state:angular:physics:position = 2.291792e-7
                 float state:angular:physics:velocity = 0
             }
@@ -304,10 +304,10 @@ over "OmniverseKit_Persp" (
     float exposure:time = 0.02
     float focalLength = 18.147562
     float focusDistance = 400
-    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -1.2418243750163998)
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -1.3981560787842713)
     float3 xformOp:rotateXYZ = (73.90668, -2.862499e-14, 139.71068)
     float3 xformOp:scale = (1, 1, 1)
-    double3 xformOp:translate = (2.0781099681451485, 1.5830013074435298, 0.8967786953842445)
+    double3 xformOp:translate = (1.9264267698948, 1.84280454862939, 1.113820698533528)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
 }
 
