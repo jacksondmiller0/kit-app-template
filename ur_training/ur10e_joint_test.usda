@@ -40,6 +40,143 @@
 
 def Xform "World"
 {
+    def "ur10e" (
+        prepend payload = @https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.2/Isaac/Robots/UniversalRobots/ur10e/ur10e.usd@
+    )
+    {
+        quatd xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0.06462116080899838, -0.04261462582934428, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "joints"
+        {
+            over "wrist_1_joint"
+            {
+                float drive:angular:physics:targetPosition = -90
+                bool[] isaac:actuator (
+                    displayName = "Actuator"
+                )
+                string isaac:NameOverride (
+                    displayName = "Joint Name Override"
+                )
+                token[] isaac:physics:DofOffsetOpOrder (
+                    displayName = "Dof Offset Op Order"
+                )
+                float state:angular:physics:position = -89.99961
+                float state:angular:physics:velocity = 0
+            }
+
+            over "elbow_joint"
+            {
+                float drive:angular:physics:targetPosition = 90
+                bool[] isaac:actuator (
+                    displayName = "Actuator"
+                )
+                string isaac:NameOverride (
+                    displayName = "Joint Name Override"
+                )
+                token[] isaac:physics:DofOffsetOpOrder (
+                    displayName = "Dof Offset Op Order"
+                )
+                float state:angular:physics:position = 90.00229
+                float state:angular:physics:velocity = 0
+            }
+
+            over "shoulder_pan_joint"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = -0.0023889018
+                float state:angular:physics:velocity = 0
+            }
+
+            over "shoulder_lift_joint"
+            {
+                float drive:angular:physics:targetPosition = -90
+                bool[] isaac:actuator (
+                    displayName = "Actuator"
+                )
+                string isaac:NameOverride (
+                    displayName = "Joint Name Override"
+                )
+                token[] isaac:physics:DofOffsetOpOrder (
+                    displayName = "Dof Offset Op Order"
+                )
+                float state:angular:physics:position = -89.99343
+                float state:angular:physics:velocity = 0
+            }
+
+            over "wrist_2_joint"
+            {
+                float drive:angular:physics:targetPosition = -90
+                float state:angular:physics:position = -90.00002
+                float state:angular:physics:velocity = 0
+            }
+
+            over "wrist_3_joint"
+            {
+                float drive:angular:physics:targetPosition = 0
+                float state:angular:physics:position = 2.291792e-7
+                float state:angular:physics:velocity = 0
+            }
+        }
+
+        over "base_link"
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-2.864795956014632e-9, -1.800174231902929e-9, 0)
+        }
+
+        over "shoulder_link"
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            quatd xformOp:orient = (0.000020742294496129352, -7.574781689148356e-9, -2.9510788337912955e-12, 0.9999999997848786)
+            double3 xformOp:translate = (-2.864795956014632e-9, -1.800174231902929e-9, 0.18070000410079956)
+        }
+
+        over "upper_arm_link"
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            quatd xformOp:orient = (0.4999817102330758, -0.49996101437358514, 0.5000389772482982, 0.5000182944367343)
+            double3 xformOp:translate = (-2.864795956014632e-9, 1.925116066558985e-9, 0.18070000410079956)
+        }
+
+        over "forearm_link"
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            quatd xformOp:orient = (-0.00003987550902054448, 0.00006920099354779974, 0.7071067789312894, 0.7071067789312893)
+            double3 xformOp:translate = (0.00007008474687930644, 1.0623324442349258e-7, 0.7933999300003052)
+        }
+
+        over "wrist_1_link"
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            quatd xformOp:orient = (0.4999701598291426, -0.4999493463641958, 0.5000505550531121, 0.5000299318455941)
+            double3 xformOp:translate = (0.5716271893344342, 0.17412653757918406, 0.7933118343353271)
+        }
+
+        over "wrist_2_link"
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            quatd xformOp:orient = (0.4999495068139763, -0.5000298722409051, 0.5000506742623607, -0.4999699397693472)
+            double3 xformOp:translate = (0.6914771692119062, 0.1741215754925065, 0.7932925224304199)
+        }
+
+        over "wrist_3_link"
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            quatd xformOp:orient = (-0.000056823124813922464, -0.7070922054054553, 0.7071213520783767, 0.00005710368305127493)
+            double3 xformOp:translate = (0.6914583937488019, 0.1741216201959901, 0.6767425537109375)
+        }
+    }
 }
 
 def Xform "Environment"
@@ -253,116 +390,6 @@ over "OmniverseKit_Top" (
     float3 xformOp:scale = (1, 1, 1)
     double3 xformOp:translate = (0, 0, 5)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
-}
-
-def "ur10e" (
-    prepend payload = @https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.2/Isaac/Robots/UniversalRobots/ur10e/ur10e.usd@
-)
-{
-    quatd xformOp:orient = (1, 0, 0, 0)
-    double3 xformOp:scale = (1, 1, 1)
-    double3 xformOp:translate = (0.06462116080899838, -0.04261462582934428, 0)
-    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-    over "joints"
-    {
-        over "wrist_1_joint"
-        {
-            float drive:angular:physics:targetPosition = -90
-            bool[] isaac:actuator (
-                displayName = "Actuator"
-            )
-            string isaac:NameOverride (
-                displayName = "Joint Name Override"
-            )
-            token[] isaac:physics:DofOffsetOpOrder (
-                displayName = "Dof Offset Op Order"
-            )
-            float state:angular:physics:position = 0
-            float state:angular:physics:velocity = 0
-        }
-
-        over "elbow_joint"
-        {
-            float drive:angular:physics:targetPosition = 90
-            bool[] isaac:actuator (
-                displayName = "Actuator"
-            )
-            string isaac:NameOverride (
-                displayName = "Joint Name Override"
-            )
-            token[] isaac:physics:DofOffsetOpOrder (
-                displayName = "Dof Offset Op Order"
-            )
-            float state:angular:physics:position = 0
-            float state:angular:physics:velocity = 0
-        }
-
-        over "shoulder_pan_joint"
-        {
-            float drive:angular:physics:targetPosition = 0
-            float state:angular:physics:position = 0
-            float state:angular:physics:velocity = 0
-        }
-
-        over "shoulder_lift_joint"
-        {
-            float drive:angular:physics:targetPosition = -90
-            bool[] isaac:actuator (
-                displayName = "Actuator"
-            )
-            string isaac:NameOverride (
-                displayName = "Joint Name Override"
-            )
-            token[] isaac:physics:DofOffsetOpOrder (
-                displayName = "Dof Offset Op Order"
-            )
-            float state:angular:physics:position = 0
-            float state:angular:physics:velocity = 0
-        }
-
-        over "wrist_2_joint"
-        {
-            float drive:angular:physics:targetPosition = -90
-            float state:angular:physics:position = 0
-            float state:angular:physics:velocity = 0
-        }
-
-        over "wrist_3_joint"
-        {
-            float drive:angular:physics:targetPosition = 0
-            float state:angular:physics:position = 0
-            float state:angular:physics:velocity = 0
-        }
-    }
-
-    over "base_link"
-    {
-    }
-
-    over "shoulder_link"
-    {
-    }
-
-    over "upper_arm_link"
-    {
-    }
-
-    over "forearm_link"
-    {
-    }
-
-    over "wrist_1_link"
-    {
-    }
-
-    over "wrist_2_link"
-    {
-    }
-
-    over "wrist_3_link"
-    {
-    }
 }
 
 def "Graphs"
